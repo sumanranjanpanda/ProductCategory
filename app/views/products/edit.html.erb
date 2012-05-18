@@ -1,0 +1,38 @@
+<%=stylesheet_link_tag :all%>
+<center>
+<% form_for(@product,:method=>"post",:url=>{:controller=>"Products",:action=>"update",:id=>@product.id}) do |f| %>
+
+<div class="err"><%=f.error_messages%></div>					
+<fieldset style="width:30%;border-color:lightgreen;border-width:1px;">
+<legend style="color:Darkgreen;text-align:center;font-size:150%">Enter Product detalis</legend>
+<table>
+	<tr>
+		<td class="des_right" nowrap>Product Name:</td>
+		<td class="des_left"><%=f.text_field :name%></td>
+	</tr>
+	<tr>
+		<td class="des_right" nowrap>Category Name:</td>
+		<td class="des_left"><%= select("product", "category_id", Category.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Please Select'}) %></td>
+	</tr>
+	<tr>
+		<td class="des_right">Price:</td>
+		<td class="des_left"><%=f.text_field :price%></td>
+	</tr>
+	<tr>
+		<td class="des_right">Status:</td>
+		<td class="des_left"><%=f.radio_button "status","1" ,:checked=>true%>Active
+					<%=f.radio_button "status","0" %>In Active</td>
+	</tr>
+	<tr>
+		<td  ></td>
+		<td  style="text-align:center" nowrap><%= link_to "View all Category", :controller=>"Categories",:action=>"list" %>&nbsp;&nbsp;&nbsp;<%= link_to "View all Product", :controller=>"Products",:action=>"list" %></td>
+	</tr>
+
+	<tr>
+		<td colspan="2"><center><br/><center><%= f.submit "Update"%></center></center></td>
+	</tr>
+</table>
+</center>
+<%end%>			
+</fieldset>
+

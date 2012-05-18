@@ -1,0 +1,38 @@
+
+<center>
+<% form_for(@product,:method=>"post",:url=>{:controller=>"Products",:action=>"create"}) do |f| %>
+<fieldset style="color:white;height:auto;width:30%;border:0">
+<div style="color:red"><% if @product.errors.count > 0 %>
+		<%= f.error_messages :header_message =>"Invalid Product", :message => nil,:header_tag=>:h3 %>
+		
+	<% end %></div>
+</fieldset>
+<fieldset style="width:30%;border-color:lightgreen;border-width:1px;" class="xyz">
+<legend style="color:Darkgreen;text-align:center;font-size:150%">Enter Product detalis</legend>
+<table >
+	<tr>
+		<td class="des_right" nowrap>Product Name:</td>
+		<td class="des_left" style="font-size:50%"><%=f.text_field :name,:placeholder=>"Enter your name....."%></td>
+	</tr>
+	<tr>
+		<td class="des_right" nowrap>Category Name:</td>
+
+		<td class="des_left"><%= select("product", "category_id", Category.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Please Select'}) %></td>
+	</tr>
+	<tr>
+		<td class="des_right">Price:</td>
+		<td class="des_left"><%=f.text_field :price,:placeholder=>"Enter price....."%></td>
+	</tr>
+	<tr>
+		<td class="des_right">Status:</td>
+		<td class="des_left"><%=f.radio_button "status","1" ,:checked=>true%>Available
+					<%=f.radio_button "status","0" %>Not Available</td>
+	</tr>
+	<tr>
+		<td colspan="2"><br/><center><%= f.submit "Save"%></center></td>
+	</tr>
+</table>
+</center>
+<%end%>			
+</fieldset>
+

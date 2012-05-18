@@ -1,0 +1,35 @@
+<%=stylesheet_link_tag :all%>
+<%=javascript_include_tag :all%>
+<body onLoad="alternate('thetable')">
+<center>
+<br/>
+<div style="color:Darkgreen;text-align:center;font-size:150%">Category Details</div>
+<br/>
+<div style="color:red;text-align:center;font-size:100%"> <%=flash[:notice]%></div>
+<table border="0" id="thetable">
+	<tr>
+		<th     style="padding:1px;text-align:left;background-color:#F1EFFF"  nowrap>Sl no</th>
+		<td  class="data" style="background-color:#F1EFFF"  nowrap><%=@category.id%></td>
+	</tr>
+	<tr>
+		<th    style="padding:1px;text-align:left"   nowrap>Category Name</th>
+		<td  class="data"  nowrap><%=@category.name%></td>
+	</tr>
+	<tr>
+
+		<th    style="padding:1px;text-align:left;background-color:#FAFAFF" nowrap>Category No.</th>
+		<td  class="data" style="background-color:#FAFAFF" nowrap><%=@category.sl_no%></td>
+	</tr>
+</table>
+<table border="0">
+	<tr>
+		<td colspan="7" style="text-align:center"><%= link_to "edit Category", :controller=>"Categories",:action=>"new" %>&nbsp;&nbsp;
+		<%= link_to "edit Product", :controller=>"Products",:action=>"new" %>&nbsp;&nbsp;
+		<%= link_to "view Category", :controller=>"Categories",:action=>"list" %>&nbsp;&nbsp;
+		<%= link_to "view Product", :controller=>"Products",:action=>"list" %></td>
+
+	</tr>
+</table>
+</center>
+</body>
+

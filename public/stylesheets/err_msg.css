@@ -1,0 +1,10 @@
+.err{
+	color:red;
+	font-size:60%;
+	position:absolute;
+	left:400px;
+	top:2px;
+	font-family:verdana;
+	font-style:italic;
+
+};

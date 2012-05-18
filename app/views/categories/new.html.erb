@@ -1,0 +1,35 @@
+
+<center>
+<% form_for(@category,:method=>"post",:url=>{:controller=>"Categories",:action=>"create"}) do |f| %>
+<fieldset style="color:white;height:auto;width:30%;border:0">
+<% if @category.errors.count > 0 %>
+		<div  align="center" style="color:red">
+			<%= f.error_messages :header_message => "Invalid Category", :message => nil,:header_tag=> :h3 %>
+		</div>
+	<% end %>
+
+</fieldset>
+<fieldset style="width:30%;border-color:lightgreen;border-width:1px;" class="xyz">
+<legend style="color:Darkgreen;text-align:center;font-size:150%">Enter Category detalis</legend>
+<table>
+	<tr>
+		<td class="des_right">Name :</td>
+		<td class="des_left"><%=f.text_field :name,:placeholder=>"Enter your name....."%></td>
+	</tr>
+	<tr>
+		<td class="des_right" nowrap>Serial No.:</td>
+		<td class="des_left"><%=f.text_field:sl_no,:placeholder=>"Enter serial no....."%></td>
+	</tr>
+	<tr>
+		<td  ></td>
+		<td  style="text-align:center" nowrap><%= link_to "View all Category", :controller=>"Categories",:action=>"list" %>&nbsp;&nbsp;&nbsp;<%= link_to "View all Product", :controller=>"Products",:action=>"list" %></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td ><center><%=f.submit :"Save"%></center></td>
+	</tr>
+</table>
+</center>
+<%end%>			
+</fieldset>
+</div>	

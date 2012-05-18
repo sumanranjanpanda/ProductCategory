@@ -1,0 +1,55 @@
+<%=stylesheet_link_tag :all%>
+<%=javascript_include_tag "tabledesign"%>
+<body onLoad="alternate('thetable')">
+<center>
+<br/>
+<div style="color:Darkgreen;text-align:center;font-size:150%"> Products Description</div>
+<br/>
+<div style="color:red;text-align:center;font-size:100%"><%=flash[:notice]%></div>
+<table id="thetable" border="0" >
+	<tr>
+		<th    style="padding:1px;text-align:left;background-color:#B9B0FF"   nowrap>Product Serial no</th>
+		<td class="data" style="background-color:#B9B0FF" nowrap><%=@product.id%></td>
+	</tr>
+	<tr>
+		<th  style="padding:1px;text-align:left"    nowrap>Product Name</th>
+		<td class="data"   nowrap><%=@product.name%></td>
+	</tr>
+	<tr>
+
+		<th   style="padding:1px;text-align:left"   nowrap>Price </th>
+		<td class="data" nowrap><%=@product.price%></td>
+	</tr>
+	<tr>
+
+		<th  style="padding:1px;text-align:left"  nowrap>Category Serial no</th>
+		<td class="data"  nowrap><%=@product.category.id %></td>
+	</tr>
+	<tr>
+
+		<th   style="padding:1px;text-align:left"   nowrap>Category Name</th>
+		<td class="data"  nowrap><%=@product.category.name %></td>
+	</tr>
+	<tr>
+
+		<th   style="padding:1px;text-align:left"   nowrap>Category No</th>
+		<td class="data"   nowrap><%=@product.category.sl_no %></td>
+	</tr>
+	<tr>
+
+		<th  style="padding:1px;text-align:left ;background-color:#F5F5FF"  nowrap>Status</th>
+		<td class="data"  style="background-color:#F5F5FF"   nowrap><%=@product.status%></td>
+	</tr>
+</table>
+<table>
+
+	<tr>
+		<td colspan="7" style="text-align:center"><%= link_to "edit Category", :controller=>"Categories",:action=>"new" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%= link_to "edit Product", :controller=>"Products",:action=>"new" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%= link_to "view Category", :controller=>"Categories",:action=>"list" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%= link_to "view Product", :controller=>"Products",:action=>"list" %></td>
+
+	</tr>
+</table>
+</center>
+</body>

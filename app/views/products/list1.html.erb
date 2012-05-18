@@ -1,0 +1,36 @@
+
+<%=javascript_include_tag :all%>
+<body onLoad="alternate('thetable')">
+<center>
+<br/>
+<div style="color:Darkgreen;text-align:center;font-size:150%">In-Active Products</div>
+<%=link_to "Go to Active Products List" , :controller=>"Products",:action=>"list"%><br/>
+<div style="color:red;text-align:center;font-size:100%"><%=flash[:notice]%></div>
+<table id="thetable" border="0" >
+	<tr>
+		<th class="heading" nowrap>Product Name</th>
+		<th class="heading" nowrap>Price </th>
+		<th class="heading" nowrap>Category</th>
+		<th class="heading" nowrap>Status</th>
+		<th class="heading" nowrap>Operation</th>
+	</tr>
+
+<% @products.each do |product| %>
+	<tr>
+		<td class="data" nowrap><%= link_to product.name, {:controller => "Products", :action => "show",:id => product.id}%></td>
+		<td class="data" nowrap><%=product.price%></td>
+		<td class="data" nowrap><%=product.category.name %></td>
+		<td class="data" nowrap><%=product.status%></td>
+		<td class="data" nowrap><%= link_to (image_tag("delete_icon.jpg",:width=>'20px',:height=>'20px', :alt => 'delete')), {:controller => "Products", :action => "delete",:id => product.id},{:onclick => "return confirm('Are you sure you want to delete this?');"} %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to (image_tag("edit_icon.jpg",:width=>'20px',:height=>'20px', :alt => 'edit')), {:controller => "Products", :action => "edit",:id => product.id},{:onclick => "return confirm('Are you sure you want to edit this?');"} %><!--#&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to (image_tag("view_icon.jpg",:width=>'20px',:height=>'20px', :alt => 'view')), {:controller => "Products", :action => "show",:id => product.id} %>--></td>		
+	</tr>
+<%end%>
+	<tr>
+		<td colspan="5" style="text-align:center"><%= link_to "edit Category", :controller=>"Categories",:action=>"new" %>&nbsp;&nbsp;
+		<%= link_to "edit Product", :controller=>"Products",:action=>"new" %>&nbsp;&nbsp;
+		<%= link_to "view Category", :controller=>"Categories",:action=>"list" %>&nbsp;&nbsp;
+		<%= link_to "view Product", :controller=>"Products",:action=>"list" %></td>
+
+	</tr>
+</table>
+</center>
+</body>

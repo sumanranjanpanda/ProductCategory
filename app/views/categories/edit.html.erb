@@ -1,0 +1,28 @@
+<%=stylesheet_link_tag :all%>
+<center>
+<% form_for(@category,:method=>"post",:url=>{:controller=>"Categories",:action=>"update",:id=> @category.id}) do |f| %>
+<div class="err"><%=f.error_messages%></div>
+<fieldset style="width:30%;border-color:lightgreen;border-width:1px;">
+<legend style="color:Darkgreen;text-align:center;font-size:150%">Enter Category detalis</legend>
+<table>
+	<tr>
+		<td class="des_right">Name :</td>
+		<td class="des_left"><%=f.text_field :name%></td>
+	</tr>
+	<tr>
+		<td class="des_right" nowrap>Serial No.:</td>
+		<td class="des_left"><%=f.text_field:sl_no%></td>
+	</tr>
+	<tr>
+		<td  ></td>
+		<td  style="text-align:center" nowrap><%= link_to "View all Category", :controller=>"Categories",:action=>"list" %>&nbsp;&nbsp;&nbsp;<%= link_to "View all Product", :controller=>"Products",:action=>"list" %></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td ><center><%=f.submit :"Update" %></center></td>
+	</tr>
+</table>
+</center>
+<%end%>			
+</fieldset>
+	

@@ -1,0 +1,12 @@
+<html>
+<head>
+<%=stylesheet_link_tag :all%>
+</head>
+<body>
+<%= render :partial=>"layouts/header" %>
+<div style="height:70%;padding-top:10px;background-color:#F0E0B3;">
+<%=yield%>
+</div>
+<%= render :partial=>"layouts/footer" %>
+</body>
+</html>
